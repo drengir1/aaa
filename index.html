@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آية، سامحيني! </title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffebcd;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d9534f;
+        }
+        .meme {
+            width: 300px;
+            border-radius: 10px;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        #forgive-button {
+            position: absolute;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>آية، سامحيني الله عليج! </h1>
+        <p>أنا آسف جدًا، وعد مني ما أضحك على حياتج التضحك! </p>
+        <img class="meme" src="https://i.imgur.com/J5b7gXk.jpg" alt="Please Forgive Me Meme">
+        <br><br>
+        <button class="button" onclick="showAnotherMeme()">اضغطي هنا لو لسه زعلانة</button>
+        <br><br>
+        <button id="forgive-button" class="button" onclick="forgiveMe()">سامحتك</button>
+    </div>
+
+    <script>
+        function showAnotherMeme() {
+            let memes = [
+            "https://i.postimg.cc/XYZ1.jpg",
+    "https://i.postimg.cc/XYZ2.jpg",
+    "https://i.postimg.cc/XYZ3.jpg"
+            ];
+            let randomMeme = memes[Math.floor(Math.random() * memes.length)];
+            document.querySelector('.meme').src = randomMeme;
+        }
+
+        let attempts = 0;
+
+document.getElementById("forgive-button").onmouseover = function() {
+    if (attempts < 5) { // Allow the button to escape only 5 times
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 50);
+        this.style.left = `${x}px`;
+        this.style.top = `${y}px`;
+        attempts++;
+    } else {
+        this.onmouseover = null; // Stop moving after 5 tries
+    }
+};
+        function forgiveMe() {
+            alert("أنتِ أروع إنسانة، وشكرًا لأن سامحتيني! ❤️");
+        }
+    </script>
+</body>
+</html>
